@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p id="d"></p>
+<input type="button" value="create" onclick="createmore(this)">
+<script type="text/javascript">	
+
+var person1={
+	fullname:function(city,country){
+		return this.fname + this.lname+","+city+","+country;
+	}
+}
+var person={
+	fname:"viais",
+	lname:"ss"
+}
+var arr=[1,2,3,4,5,6,7,8,9];
+
+var t=arr.filter(function(val){
+	return val > 3;
+});
+var sum=0;
+var r=arr.reduceRight(function(passval,val){
+        return passval+val;
+        
+
+        console.log(passval+" "+val);
+        }
+);
+
+var er=arr.map(function(val){
+	return val * 2;
+});
+
+var tr=er.reduceRight(function(passval,val){
+        return passval+val;
+        
+
+        console.log(passval+" "+val);
+        }
+);
+
+console.log(r);
+console.log(tr);
+
+console.log(r);
+
+console.log(person1.fullname.apply(person,["oslo","norway"]));
+function createmore(){
+	var divtag=document.createElement("div");
+document.body.appendChild(divtag);
+var para=document.createElement("p");
+var t=document.createTextNode("This is nox from javascript dom");
+para.appendChild(t);
+divtag.appendChild(para);
+}
+</script>
+</body>
+</html>

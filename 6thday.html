@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body >
+	<select id="sel" onchange="show()">
+		<option>vasanth</option>
+		<option>asdafsd</option>
+	</select>
+	<input type="text" placeholder="name" id="hi"/>
+	<input type="button" id="bu" value="addchild" onclick="addchildd()" />
+<script type="text/javascript">
+
+function show(){
+	var s=document.getElementById("sel");
+
+	console.log(s.options[s.selectedIndex].text);
+}
+
+function addchildd(){
+	var select=document.getElementById("sel");
+	var option=document.createElement("option");
+	var te=document.createTextNode("New");
+	option.appendChild(te);
+	select.appendChild(option);
+}
+
+
+document.getElementById("hi").addEventListener("blur",blured);
+document.getElementById("hi").addEventListener("focus",()=>{
+      console.log("moved in!");
+});
+
+function blured(){
+     console.log("moved out!");
+}
+
+</script>
+</body>
+</html>

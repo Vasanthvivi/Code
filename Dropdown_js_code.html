@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div{
+      align-items: center;
+      height: 200px;
+      width:200px;
+     margin:auto;
+		}
+	</style>
+</head>
+<body onload="loaddata()">
+	<div id="div">
+		<p>Select Country:
+<select id="countryselect" style="height: 50px; width: 200px;" size="1"  onchange="loaddata()">
+</select></p>
+<br>
+<p>Select state:
+<select id="stateselect" style="height: 50px; width: 200px;" size="1" >
+	
+</select></p>
+</div>
+<script type="text/javascript" charset="utf-8" async defer>
+let countries={
+	india:["bihar","jammu","andhra","TamilNadu"],
+  	usa:["mexico","atlanta","rio"],
+  	china:["tokyo","japan","chian"]
+};
+var countryselecttag=document.getElementById("countryselect");
+ var option=document.createElement('option');
+var keys=Object.keys(countries);
+var values=Object.values(countries);
+for(let i=0;i<keys.length;i++){
+countryselecttag=document.getElementById("countryselect");
+ option=document.createElement('option');
+ option.text=keys[i];
+  countryselecttag.add(option);
+}
+select_option_tag=document.createElement("option");
+select_option_tag.text="Select Country";
+countryselecttag.insertBefore(select_option_tag, countryselecttag.firstChild);
+countryselecttag.selectedIndex=countryselecttag;
+function loaddata(){
+	var statestoberemoved=document.getElementById('stateselect');
+	var stateselecttag=document.getElementById('stateselect');
+	while(statestoberemoved.firstChild){
+        console.log(statestoberemoved.firstChild);
+		statestoberemoved.removeChild(statestoberemoved.firstChild);
+	}
+    var whatcountryselected=document.getElementById('countryselect').value;
+    var firsttag="Select Country";
+    if(firsttag == whatcountryselected){
+             var state_select_option=document.createElement("option");
+             state_select_option.text="Select State";
+             stateselecttag.insertBefore(state_select_option, stateselecttag.firstChild);
+    }
+    else
+    {
+	 var s=Object.values(countries[whatcountryselected]);
+	 for(let a=0;a<s.length;a++)
+	 {
+	   var options=document.createElement('option');
+       var stateselecttag=document.getElementById('stateselect');
+	   options.text=s[a];
+	   stateselecttag.add(options);
+	 }
+}
+}
+</script>
+</body>
+</html>
